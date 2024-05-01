@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField]
-    public int ammoAmount  ;
+    public WeaponData weaponData;
+    private PlayerHUD playerHUD;
+
+    private void Start()
+    {
+        playerHUD = GetComponent<PlayerHUD>();
+    }
 
     public int GetCurrentAmmo()
         {
-            return ammoAmount;
+            return weaponData.magazineSize;
+        
+
         }
    
     public void ReduceAmmo()
     {
-        ammoAmount--;
+        weaponData.magazineSize--;
+        playerHUD.UpdateWeaponUI(weaponData);
     }
 
     public void IncreaseAmmo()
     {
-        ammoAmount += 5;
+        weaponData.magazineSize += 5;
+        playerHUD.UpdateWeaponUI(weaponData);
     }
 }

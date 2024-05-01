@@ -10,11 +10,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] Camera muzzleCam;
     [SerializeField] float damage = 20f;
 
-    [SerializeField] ParticleSystem dash;
+    [SerializeField] ParticleSystem dash; //maybe change the name
     [SerializeField] GameObject hitFx;
 
     [SerializeField] GameObject fireball;
     [SerializeField] float shootForce = 5f;
+    private PlayerHUD playerHUD;
 
     public Vector3 smoothAds;
 
@@ -27,8 +28,11 @@ public class Weapon : MonoBehaviour
 
     [SerializeField]
     private float aimspeed = 1500f;
-
-
+    
+    private void Start()
+    {
+        playerHUD = GetComponentInParent<PlayerHUD>();
+    }
 
     void Update()
     {
@@ -36,8 +40,6 @@ public class Weapon : MonoBehaviour
         {
             Shoot();
         }
-
-
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -67,11 +69,12 @@ public class Weapon : MonoBehaviour
             ammoAvailable = true;
         }
 
-        if (ammoAvailable == true)
+        if (ammoAvailable)
         {
             ProcessRaycast();
             dash.Play();
             ammoSlot.ReduceAmmo();
+            
         }
 
         if (ammoSlot.GetCurrentAmmo() <= 0)
@@ -80,9 +83,7 @@ public class Weapon : MonoBehaviour
         }
 
 
-
     }
-
 
     public void ProcessRaycast()
     {
@@ -97,7 +98,6 @@ public class Weapon : MonoBehaviour
             if (target == null) return; //enemy yerine diger objelere ates edersem.
 
             target.TakeDamage(damage); // asil oldurecek olan bu.
-
         }
 
     }
