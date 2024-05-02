@@ -15,8 +15,6 @@ public class Ammo : MonoBehaviour
     public int GetCurrentAmmo()
         {
             return weaponData.magazineSize;
-        
-
         }
    
     public void ReduceAmmo()

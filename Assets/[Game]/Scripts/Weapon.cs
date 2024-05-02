@@ -74,7 +74,7 @@ public class Weapon : MonoBehaviour
             ProcessRaycast();
             dash.Play();
             ammoSlot.ReduceAmmo();
-            
+            //playerHUD.UpdateWeaponUI();
         }
 
         if (ammoSlot.GetCurrentAmmo() <= 0)
