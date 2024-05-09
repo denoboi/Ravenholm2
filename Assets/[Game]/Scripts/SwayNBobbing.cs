@@ -68,8 +68,6 @@ public class SwayNBobbing : MonoBehaviour
 
         lookInput.x = Input.GetAxis("Mouse X");
         lookInput.y = Input.GetAxis("Mouse Y");
-
-
     }
 
 
@@ -108,7 +106,7 @@ public class SwayNBobbing : MonoBehaviour
 
     void BobRotation()
     {
-        bobEulerRotation.x = (walkInput != Vector2.zero ? multiplier.x * (Mathf.Sin(1f * speedCurve)) : multiplier.x * (Mathf.Sin(0.2f * speedCurve) / 6)); //standingstill
+        bobEulerRotation.x = (walkInput != Vector2.zero ? multiplier.x * (Mathf.Sin(1f * speedCurve)) : multiplier.x * (Mathf.Sin(.5f * speedCurve) / 4)); //standingstill
         bobEulerRotation.y = (walkInput != Vector2.zero ? multiplier.y * curveCos : 0);
         bobEulerRotation.z = (walkInput != Vector2.zero ? multiplier.z * curveCos * walkInput.x : 0);
     }

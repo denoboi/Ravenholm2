@@ -4204,6 +4204,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1094012295, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094012295, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1094012298, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4215,6 +4223,14 @@ PrefabInstance:
     - target: {fileID: 1094012298, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: step
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: smooth
+      value: 21.33
       objectReference: {fileID: 0}
     - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: bobLimit.x
@@ -4242,7 +4258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: rotationStep
-      value: 4.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: travelLimit.x
@@ -4252,6 +4268,18 @@ PrefabInstance:
       propertyPath: bobExaggeration
       value: 7.61
       objectReference: {fileID: 0}
+    - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: maxRotationStep
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: maxStepDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491855936, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: MouseSmoothSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1633281434, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: weaponUI
       value: 
@@ -4260,9 +4288,33 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 496932207}
+    - target: {fileID: 2488479380265080402, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094824070237204457, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: mouseLook.smoothTime
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094824070237204457, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: mouseLook.XSensitivity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094824070237204457, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: mouseLook.YSensitivity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094824070237204457, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: advancedSettings.slowDownRate
+      value: 30.49
+      objectReference: {fileID: 0}
     - target: {fileID: 4094824070243768843, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094824070243768843, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4094824070244124207, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: m_RootOrder
@@ -4307,6 +4359,54 @@ PrefabInstance:
     - target: {fileID: 4094824070244124207, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094824070247004525, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904566314448115466, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710831478558860278, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710837340642492420, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710837340642492420, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711446160045993514, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032777402996988257, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032777402996988259, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032777402996988261, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032777402996988263, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032777402996988265, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032777402996988267, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1491855933, guid: e147ea29e0526f4439c6ee72e05d2dc1, type: 3}
