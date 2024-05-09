@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 9032777402996491589}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1094012296
 Camera:
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094824070243768841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.6, z: 0.156}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0.229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6887202247375520801}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094824070243768841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83c81407209f85e4c87c0cda8b32868e, type: 3}
   m_Name: 
@@ -238,11 +238,11 @@ MonoBehaviour:
       m_RotationOrder: 4
     VerticaltoHorizontalRatio: 2
   jumpAndLandingBob:
-    BobDuration: 0.15
-    BobAmount: 0.2
+    BobDuration: 0.1
+    BobAmount: 0.1
   rigidbodyFirstPersonController: {fileID: 4094824070237204457}
   StrideInterval: 4
-  RunningStrideLengthen: 0.11
+  RunningStrideLengthen: 0
 --- !u!124 &4094824070236176997
 Behaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 2001932644}
   - component: {fileID: 2001932645}
   - component: {fileID: 2001932646}
+  - component: {fileID: 1633281434}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -388,6 +389,9 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+  m_IsGrounded: 0
+  bobbingSpeed: 10
+  bobbingAmount: 0.05
 --- !u!114 &4094824068805646345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +447,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5343aab14a8344d947d10b36760b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 10
+  weaponData: {fileID: 11400000, guid: 2aba2026e32fe1d42b83ea69c273629d, type: 2}
+--- !u!114 &1633281434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094824070243768843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90843032ff8d19449bf02c3582a0ed61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponUI: {fileID: 0}
 --- !u!1 &7904566314448115466
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +492,20 @@ Transform:
   m_Father: {fileID: 4094824070244124205}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1491855933
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032777402996988261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 15.995835
+  m_Height: 9.563654
+  m_Direction: 1
+  m_Center: {x: 0.00006135492, y: -0.9612789, z: -2.7296693}
 --- !u!65 &4094824069697793043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -488,6 +519,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8751357, y: 9.563653, z: 31.991663}
   m_Center: {x: 0.00000031976728, y: -0.9612788, z: -2.7296076}
+--- !u!114 &1491855936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032777402996988261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3764f48d9d5c749849dbf569bc8866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step: 0.01
+  maxStepDistance: 0.06
+  rotationStep: 4
+  maxRotationStep: 5
+  smooth: 10
+  speedCurve: 0
+  travelLimit: {x: 0.025, y: 0.025, z: 0.025}
+  bobLimit: {x: 0.01, y: 0.01, z: 0.01}
+  bobExaggeration: 0
+  multiplier: {x: 2, y: 2, z: 2}
 --- !u!114 &4094824069560329450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +661,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 859388276613407885, guid: 983d3c32751ffbf40b05493c52f50da9, type: 3}
+    - {fileID: 4764768017852045012, guid: 983d3c32751ffbf40b05493c52f50da9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 983d3c32751ffbf40b05493c52f50da9, type: 3}
 --- !u!1 &9032777402996988261 stripped
 GameObject:

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -19,6 +20,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public float JumpForce = 30f;
             public AnimationCurve SlopeCurveModifier = new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(90.0f, 0.0f));
             [HideInInspector] public float CurrentTargetSpeed = 8f;
+
+           
+
+
 
 #if !MOBILE_INPUT
             private bool m_Running;
@@ -87,8 +92,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
-        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
+        private bool m_Jump, m_PreviouslyGrounded, m_Jumping;
+        public bool m_IsGrounded;
 
+        [Header("Weapon Bobbing")]
+        public float bobbingSpeed = 10f;
+        public float bobbingAmount = 0.05f;
+
+        private Vector2 lastInput;
+
+
+        private Vector3 weaponInitialPosition;
 
         public Vector3 Velocity
         {
@@ -123,6 +137,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
+            weaponInitialPosition = transform.localPosition;
         }
 
 
@@ -184,6 +199,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
             m_Jump = false;
+
+            //if (input.magnitude > 0f) //weaponbob
+            //{
+            //    // Calculate bobbing motion based on player's movement
+            //    float bobbingFactor = Mathf.Sin(Time.time * bobbingSpeed) * bobbingAmount;
+
+            //    // Apply bobbing motion to the weapon's position
+            //    Vector3 weaponBobbing = new Vector3(0f, bobbingFactor, 0f);
+            //    transform.localPosition = weaponInitialPosition + weaponBobbing;
+
+            //    // Update last input
+            //    lastInput = input;
+            //}
+            //else
+            //{
+            //    // Reset weapon position if there is no input
+            //    transform.localPosition = weaponInitialPosition;
+            //}
         }
 
 
@@ -209,7 +242,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private Vector2 GetInput()
+        public Vector2 GetInput()
         {
             
             Vector2 input = new Vector2
@@ -222,7 +255,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void RotateView()
+        public void RotateView()
         {
             //avoids the mouse looking if the game is effectively paused
             if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
