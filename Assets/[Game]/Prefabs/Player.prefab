@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1094012298
 Transform:
   m_ObjectHideFlags: 0
@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 4094824070244124207}
   - component: {fileID: 4094824070247004525}
   - component: {fileID: 4094824070239443373}
+  - component: {fileID: 8127805462687407457}
   - component: {fileID: 4094824070237204457}
   - component: {fileID: 4094824068805646345}
   - component: {fileID: 2001932644}
@@ -320,6 +321,26 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8127805462687407457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094824070243768843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2fd1bac1b3e5d4fa9511bd38c40e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reducedHeight: 0
+  _slideSpeed: 0
+  CrouchYScale: 0
+  IsSliding: 0
+  IsCrouching: 0
+  characterTransform: {fileID: 0}
+  crouchAmount: 0.5
+  crouchSpeedModifier: 0.5
 --- !u!114 &4094824070237204457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +706,10 @@ PrefabInstance:
     - target: {fileID: 1616104946086206, guid: d629b10ab3d7c8e4db53f00ccd9b8af8, type: 3}
       propertyPath: m_Name
       value: DashRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616104946086206, guid: d629b10ab3d7c8e4db53f00ccd9b8af8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4637734339209344, guid: d629b10ab3d7c8e4db53f00ccd9b8af8, type: 3}
       propertyPath: m_RootOrder

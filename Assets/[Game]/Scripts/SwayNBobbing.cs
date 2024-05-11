@@ -43,17 +43,19 @@ public class SwayNBobbing : MonoBehaviour
     {
         _initialPos = transform.localPosition;
     }
+  
 
     void Update()
     {
         GetInput();
+        CompositePositionRotation();
 
         Sway();
         SwayRotation();
         BobOffset();
         BobRotation();
 
-        CompositePositionRotation();
+        
     }
 
 

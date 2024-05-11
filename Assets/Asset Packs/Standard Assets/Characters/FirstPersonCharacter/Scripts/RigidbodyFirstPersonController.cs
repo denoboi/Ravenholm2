@@ -95,11 +95,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping;
         public bool m_IsGrounded;
 
-        [Header("Weapon Bobbing")]
-        public float bobbingSpeed = 10f;
-        public float bobbingAmount = 0.05f;
-
-        private Vector2 lastInput;
+        
 
 
         private Vector3 weaponInitialPosition;
@@ -151,11 +147,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+       
+
 
         private void FixedUpdate()
         {
+            
             GroundCheck();
             Vector2 input = GetInput();
+
+            if ((input.magnitude < float.Epsilon || Mathf.Approximately(input.sqrMagnitude, 0f)) && m_IsGrounded)
+            {
+                // Calculate the slowdown force based on the slowDownRate
+                Vector3 slowdownForce = -m_RigidBody.velocity.normalized * advancedSettings.slowDownRate;
+
+                // Apply the slowdown force to the character's velocity
+                m_RigidBody.AddForce(slowdownForce, ForceMode.Acceleration);
+            }
 
             if ((Mathf.Abs(input.x) > float.Epsilon || Mathf.Abs(input.y) > float.Epsilon) && (advancedSettings.airControl || m_IsGrounded))
             {
@@ -200,24 +208,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             m_Jump = false;
 
-            //if (input.magnitude > 0f) //weaponbob
-            //{
-            //    // Calculate bobbing motion based on player's movement
-            //    float bobbingFactor = Mathf.Sin(Time.time * bobbingSpeed) * bobbingAmount;
-
-            //    // Apply bobbing motion to the weapon's position
-            //    Vector3 weaponBobbing = new Vector3(0f, bobbingFactor, 0f);
-            //    transform.localPosition = weaponInitialPosition + weaponBobbing;
-
-            //    // Update last input
-            //    lastInput = input;
-            //}
-            //else
-            //{
-            //    // Reset weapon position if there is no input
-            //    transform.localPosition = weaponInitialPosition;
-            //}
+           
+           
         }
+
+       
 
 
         private float SlopeMultiplier()
