@@ -48,14 +48,16 @@ public class SwayNBobbing : MonoBehaviour
     void Update()
     {
         GetInput();
-        CompositePositionRotation();
+        
 
         Sway();
         SwayRotation();
         BobOffset();
         BobRotation();
 
-        
+        CompositePositionRotation();
+
+
     }
 
 

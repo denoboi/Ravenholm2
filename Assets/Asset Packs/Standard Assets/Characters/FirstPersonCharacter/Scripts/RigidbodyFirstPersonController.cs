@@ -98,7 +98,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         
 
 
-        private Vector3 weaponInitialPosition;
+        
 
         public Vector3 Velocity
         {
@@ -133,7 +133,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
-            weaponInitialPosition = transform.localPosition;
+           
         }
 
 
@@ -156,14 +156,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             GroundCheck();
             Vector2 input = GetInput();
 
-            if ((input.magnitude < float.Epsilon || Mathf.Approximately(input.sqrMagnitude, 0f)) && m_IsGrounded)
-            {
-                // Calculate the slowdown force based on the slowDownRate
-                Vector3 slowdownForce = -m_RigidBody.velocity.normalized * advancedSettings.slowDownRate;
+            //if ((input.magnitude < float.Epsilon || Mathf.Approximately(input.sqrMagnitude, 0f)) && m_IsGrounded)
+            //{
+            //    // Calculate the slowdown force based on the slowDownRate
+            //    Vector3 slowdownForce = -m_RigidBody.velocity.normalized * advancedSettings.slowDownRate;
 
-                // Apply the slowdown force to the character's velocity
-                m_RigidBody.AddForce(slowdownForce, ForceMode.Acceleration);
-            }
+            //    // Apply the slowdown force to the character's velocity
+            //    m_RigidBody.AddForce(slowdownForce, ForceMode.Acceleration);
+            //}
 
             if ((Mathf.Abs(input.x) > float.Epsilon || Mathf.Abs(input.y) > float.Epsilon) && (advancedSettings.airControl || m_IsGrounded))
             {
@@ -206,15 +206,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     StickToGroundHelper();
                 }
             }
-            m_Jump = false;
-
-           
-           
+            m_Jump = false;  
         }
-
-       
-
-
         private float SlopeMultiplier()
         {
             float angle = Vector3.Angle(m_GroundContactNormal, Vector3.up);
