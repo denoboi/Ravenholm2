@@ -5,8 +5,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class SwayNBobbing : MonoBehaviour
 {
-    private RigidbodyFirstPersonController _rbFPSController;
-    public RigidbodyFirstPersonController RbFPSController => _rbFPSController ??= GetComponentInParent<RigidbodyFirstPersonController>();
+    public PlayerMovement PlayerMovement;
+
 
     private Vector3 _initialPos;
 
@@ -101,10 +101,10 @@ public class SwayNBobbing : MonoBehaviour
 
     void BobOffset()
     {
-        speedCurve += Time.deltaTime * (RbFPSController.m_IsGrounded ? RbFPSController.Velocity.magnitude : 1f) + 0.01f;
+        speedCurve += Time.deltaTime * (PlayerMovement.Isgrounded ? PlayerMovement.rb.velocity.magnitude : 1f) + 0.01f;
 
-        bobPosition.x = (curveCos * bobLimit.x * (RbFPSController.m_IsGrounded ? 1 : 0)) - (walkInput.x * travelLimit.x);
-        bobPosition.y = (curveSin * bobLimit.y) - (RbFPSController.Velocity.y * travelLimit.y);
+        bobPosition.x = (curveCos * bobLimit.x * (PlayerMovement.Isgrounded ? 1 : 0)) - (walkInput.x * travelLimit.x);
+        bobPosition.y = (curveSin * bobLimit.y) - (PlayerMovement.rb.velocity.y * travelLimit.y);
         bobPosition.z = -(walkInput.y * travelLimit.z);
     }
 

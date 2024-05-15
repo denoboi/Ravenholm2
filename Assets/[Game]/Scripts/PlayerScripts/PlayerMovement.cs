@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform orientation;
 
     //Other
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     //Rotation and look
     private float xRotation;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     public float moveSpeed = 4500;
     public float maxSpeed = 20;
-    public bool grounded;
+    public bool Isgrounded;
     public LayerMask whatIsGround;
 
     public float counterMovement = 0.175f;
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         if (rb.velocity.magnitude > 0.5f)
         {
-            if (grounded)
+            if (Isgrounded)
             {
                 rb.AddForce(orientation.transform.forward * slideForce);
             }
@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         float maxSpeed = this.maxSpeed;
 
         //If sliding down a ramp, add force down so player stays grounded and also builds speed
-        if (crouching && grounded && readyToJump)
+        if (crouching && Isgrounded && readyToJump)
         {
             rb.AddForce(Vector3.down * Time.deltaTime * 3000);
             return;
@@ -142,14 +142,14 @@ public class PlayerMovement : MonoBehaviour
         float multiplier = 1f, multiplierV = 1f;
 
         // Movement in air
-        if (!grounded)
+        if (!Isgrounded)
         {
             multiplier = 0.5f;
             multiplierV = 0.5f;
         }
 
         // Movement while sliding
-        if (grounded && crouching) multiplierV = 0f;
+        if (Isgrounded && crouching) multiplierV = 0f;
 
         //Apply forces to move player
         rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (grounded && readyToJump)
+        if (Isgrounded && readyToJump)
         {
             readyToJump = false;
 
@@ -203,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CounterMovement(float x, float y, Vector2 mag)
     {
-        if (!grounded || jumping) return;
+        if (!Isgrounded || jumping) return;
 
         //Slow down sliding
         if (crouching)
@@ -275,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
             //FLOOR
             if (IsFloor(normal))
             {
-                grounded = true;
+                Isgrounded = true;
                 cancellingGrounded = false;
                 normalVector = normal;
                 CancelInvoke(nameof(StopGrounded));
@@ -293,7 +293,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void StopGrounded()
     {
-        grounded = false;
+        Isgrounded = false;
     }
 
 }

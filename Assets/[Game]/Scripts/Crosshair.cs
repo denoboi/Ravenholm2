@@ -13,6 +13,7 @@ public class Crosshair : MonoBehaviour
     public bool resizeable = false;
     public float resizedSpread = 20f;
     public float resizeSpeed = 3f;
+    public float shrinkSpeed = 2f;
 
     float spread;
     bool resizing = false;
@@ -39,7 +40,7 @@ public class Crosshair : MonoBehaviour
             else
             {
                 //decrease spread
-                spread = Mathf.Lerp(spread, defaultSpread, resizeSpeed * Time.deltaTime);
+                spread = Mathf.Lerp(spread, defaultSpread, resizeSpeed * Time.deltaTime * shrinkSpeed);
             }
 
             //clamp spread
