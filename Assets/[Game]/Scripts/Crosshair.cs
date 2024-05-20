@@ -40,7 +40,7 @@ public class Crosshair : MonoBehaviour
             else
             {
                 //decrease spread
-                spread = Mathf.Lerp(spread, defaultSpread, resizeSpeed * Time.deltaTime * shrinkSpeed);
+                spread = Mathf.Lerp(spread, defaultSpread, shrinkSpeed * Time.deltaTime);
             }
 
             //clamp spread
