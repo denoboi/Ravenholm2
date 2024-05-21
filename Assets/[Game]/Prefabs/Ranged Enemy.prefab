@@ -63,7 +63,6 @@ GameObject:
   - component: {fileID: 5526511744458162200}
   - component: {fileID: 5526511744458162201}
   - component: {fileID: 5526511744458162202}
-  - component: {fileID: 2657935866628282120}
   - component: {fileID: 2657935867900213700}
   m_Layer: 0
   m_Name: Ranged Enemy
@@ -149,7 +148,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2.0407574
   m_Direction: 1
-  m_Center: {x: 0, y: -0.069621444, z: 0}
+  m_Center: {x: 0, y: 1.04, z: 0}
 --- !u!195 &5526511744458162202
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -172,25 +171,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &2657935866628282120
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5526511744458162204}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-  m_Controller: {fileID: 9100000, guid: bc2685381a1564a47aaf18c020bd5700, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2657935867900213700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8218048583204929981, guid: 903f77ded92c18546a0e3f45a622f05d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2161268
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8218048583204929981, guid: 903f77ded92c18546a0e3f45a622f05d, type: 3}
       propertyPath: m_LocalPosition.z
