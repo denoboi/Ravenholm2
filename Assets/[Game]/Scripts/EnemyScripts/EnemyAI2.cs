@@ -19,7 +19,7 @@ public class EnemyAI2 : MonoBehaviour
     public Vector3 walkPoint;
     private bool _walkPointSet;
     public float walkPointRange;
-
+    
     // Attacking
     public float timeBetweenAttacks;
     private bool _alreadyAttacked;

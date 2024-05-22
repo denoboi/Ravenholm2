@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653439451592}
   - component: {fileID: 5866666021616335794}
+  - component: {fileID: 3744426988297818542}
   m_Layer: 0
   m_Name: 'TV head 5- Animation 1 '
   m_TagString: Untagged
@@ -220,6 +221,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3744426988297818542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149448588146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac9730686787734f8931200d3177a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1045568802184257789
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +784,7 @@ MonoBehaviour:
   projectile: {fileID: 9163413569961422935, guid: 924eec05d718d0e4c99984d33e636c57, type: 3}
   projectileLifetime: 5
   sightRange: 50
-  attackRange: 20
+  attackRange: 30
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!1 &5988324449164782631
