@@ -25,6 +25,8 @@ public class EnemyAI2 : MonoBehaviour
     private bool _alreadyAttacked;
     public GameObject projectile;
     public float projectileLifetime = 5f;
+    public Transform projectileSpawnPoint;
+    [SerializeField] private float _projectileSpeed;
 
     // States
     public float sightRange, attackRange;
@@ -92,13 +94,13 @@ public class EnemyAI2 : MonoBehaviour
         // Smoothly rotate towards the player
         Vector3 direction = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 15f);
 
         if (!_alreadyAttacked)
         {
             // Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position + transform.forward * 1.5f, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<Rigidbody>(); 
+            rb.AddForce(projectileSpawnPoint.forward * _projectileSpeed, ForceMode.Impulse);
 
             // Destroy the projectile after a delay
             Destroy(rb.gameObject, projectileLifetime);

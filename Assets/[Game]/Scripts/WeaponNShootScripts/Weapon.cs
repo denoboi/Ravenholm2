@@ -36,10 +36,10 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Shoot();
+        //}
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -62,45 +62,45 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void Shoot()
-    {
-        if (ammoSlot.GetCurrentAmmo() > 0)
-        {
-            ammoAvailable = true;
-        }
+    //private void Shoot()
+    //{
+    //    if (ammoSlot.GetCurrentAmmo() > 0)
+    //    {
+    //        ammoAvailable = true;
+    //    }
 
-        if (ammoAvailable)
-        {
-            ProcessRaycast();
-            dash.Play();
-            ammoSlot.ReduceAmmo();
-            //playerHUD.UpdateWeaponUI();
-        }
+    //    if (ammoAvailable)
+    //    {
+    //        ProcessRaycast();
+    //        dash.Play();
+    //        ammoSlot.ReduceAmmo();
+    //        //playerHUD.UpdateWeaponUI();
+    //    }
 
-        if (ammoSlot.GetCurrentAmmo() <= 0)
-        {
-            ammoAvailable = false;
-        }
-
-
-    }
-
-    public void ProcessRaycast()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(muzzleCam.transform.position, muzzleCam.transform.forward, out hit, range))
-        {
-            Debug.Log("I hit this thing:" + hit.transform.name);
-            CreateHitFX(hit);
-            EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
+    //    if (ammoSlot.GetCurrentAmmo() <= 0)
+    //    {
+    //        ammoAvailable = false;
+    //    }
 
 
-            if (target == null) return; //enemy yerine diger objelere ates edersem.
+    //}
 
-            target.TakeDamage(damage); // asil oldurecek olan bu.
-        }
+    //public void ProcessRaycast()
+    //{
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(muzzleCam.transform.position, muzzleCam.transform.forward, out hit, range))
+    //    {
+    //        Debug.Log("I hit this thing:" + hit.transform.name);
+    //        CreateHitFX(hit);
+    //        EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
 
-    }
+
+    //        if (target == null) return; //enemy yerine diger objelere ates edersem.
+
+    //        target.TakeDamage(damage); // asil oldurecek olan bu.
+    //    }
+
+    //}
 
     private void CreateHitFX(RaycastHit hit)
     {
