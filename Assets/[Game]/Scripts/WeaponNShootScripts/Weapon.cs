@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
 
     public Ammo ammoSlot;
     public bool ammoAvailable = true;
-    private bool isAiming = false;
+    public bool isAiming = false;
     public Vector3 aimDownSight;
     public Vector3 hipFire;
 
@@ -44,7 +44,6 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             smoothAds = transform.localPosition;
-
             isAiming = true;
         }
         if (Input.GetMouseButton(1))
@@ -56,7 +55,7 @@ public class Weapon : MonoBehaviour
         {
             isAiming = false;
         }
-        if (isAiming == false && transform.localPosition != hipFire)
+        if (!isAiming && transform.localPosition != hipFire)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, hipFire, 7f * Time.deltaTime);
         }
@@ -102,9 +101,9 @@ public class Weapon : MonoBehaviour
 
     //}
 
-    private void CreateHitFX(RaycastHit hit)
-    {
-        GameObject impact = Instantiate(hitFx, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impact, 2);
-    }
+    //private void CreateHitFX(RaycastHit hit)
+    //{
+    //    GameObject impact = Instantiate(hitFx, hit.point, Quaternion.LookRotation(hit.normal));
+    //    Destroy(impact, 2);
+    //}
 }
