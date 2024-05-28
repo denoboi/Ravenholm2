@@ -5,18 +5,14 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 
-    [SerializeField] float hitPoints = 100f;
+    [SerializeField] float _hP = 100f;
     
     
-    void Update()
-    {
-        
-    }
     public void TakeDamage(float damage)
     {
-        EventManager.OnDamageTaken.Invoke();
-        hitPoints -= damage; //ne kadar damage ise o kadar health azalacak.
-        if (hitPoints <= 0)
+        
+        _hP -= damage; 
+        if (_hP <= 0)
         {
             Destroy(gameObject);
 
@@ -24,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
     
 
 }
-    
+
+
 
 }

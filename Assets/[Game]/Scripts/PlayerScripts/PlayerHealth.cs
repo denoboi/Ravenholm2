@@ -5,24 +5,41 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private bool isDead;
+    public bool IsDead {  get { return isDead; } }
+   
 
     public void TakeDamage(float damage)
     {
+        if(isDead) return;
+
         hitPoints -= damage;
         if(hitPoints <= 0)
         {
+            isDead = true;
             GetComponent<DeathHandler>().HandleDeath();   
             Debug.Log("You dead, my glip glop");
         }
     }
+
+    private void Update()
+    {
+        if(isDead) 
+          return;
+
+        CalculatePosition();
+    }
+
+    private void CalculatePosition()
+    {
+        if(gameObject.transform.position.y < -50)
+        {
+            isDead=true;
+            GetComponent<DeathHandler>().HandleDeath();
+        }
+            
+        
+    }
+
 }

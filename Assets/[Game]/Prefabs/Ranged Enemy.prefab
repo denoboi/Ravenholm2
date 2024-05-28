@@ -700,6 +700,8 @@ GameObject:
   - component: {fileID: 5526511744458162201}
   - component: {fileID: 5526511744458162202}
   - component: {fileID: 2657935867900213700}
+  - component: {fileID: 2037379191262493270}
+  - component: {fileID: 5469973359933621499}
   m_Layer: 0
   m_Name: Ranged Enemy
   m_TagString: Untagged
@@ -785,10 +787,40 @@ MonoBehaviour:
   projectile: {fileID: 9163413569961422935, guid: 924eec05d718d0e4c99984d33e636c57, type: 3}
   projectileLifetime: 5
   projectileSpawnPoint: {fileID: 5728287291950479573}
+  _projectileSpeed: 0
   sightRange: 50
   attackRange: 30
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!114 &2037379191262493270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526511744458162204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f89e59406cd364093788cfd3162ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hP: 300
+--- !u!54 &5469973359933621499
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526511744458162204}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5802322254424120351
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5802322254424120351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.612, y: 1.991, z: 1.451}
+  m_LocalPosition: {x: 0, y: 1.991, z: 1.451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5526511744458162182}

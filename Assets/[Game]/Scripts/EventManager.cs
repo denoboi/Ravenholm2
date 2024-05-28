@@ -7,5 +7,6 @@ using UnityEngine.Events;
 public static class EventManager
 {
     public static UnityEvent OnDamageTaken = new UnityEvent();
+    public static UnityEvent OnPlayerDamageTaken = new UnityEvent();
 }
     
